@@ -4,6 +4,8 @@ const github = require('@octokit/rest');
 
 const app = express();
 
+const port  = process.env.PORT || 3000;
+
 app.get('/', (req, res) => {
   res.send('Welcome to my HNGx stage1 API!');
 });
@@ -40,6 +42,6 @@ app.get('/api', (req, res) => {
   res.json(response);
 });
 
-app.listen(3000, () => {
-  console.log('App is listening on port http://localhost:3000/');
+app.listen(port, () => {
+  console.log(`App is listening on port http://localhost:${port}/`);
 });
