@@ -1,3 +1,4 @@
+heroku buildpacks:set heroku/python
 blinker==1.6.2
 certifi==2023.7.22
 charset-normalizer==3.2.0
