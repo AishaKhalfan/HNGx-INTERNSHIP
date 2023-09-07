@@ -1,0 +1,14 @@
+{
+  "name": "hngxapi",
+  "version": "1.0.0",
+  "description": "A simple Express API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "@octokit/rest": "^20.0.1",
+    "express": "^4.17.1",
+    "moment": "^2.29.4"
+  }
+}
