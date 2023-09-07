@@ -1,1 +1,3 @@
 hngxenv/
+node_modules/
+.env
