@@ -5,14 +5,14 @@ import pytz
 
 app = Flask(__name__)
 
-@app.route('/index', methods=['GET'])
-def get_infor():
+@app.route('/api', methods=['GET'])
+def get_infor(slack_name, track):
     """
     This endpoint should take two GET request query parameters
     return specific information in JSON format
     """
-    slack_name = 'Aisha Khalifan'
-    track = 'Backend General'
+    slack_name = 'AishaKhalifan'
+    track = 'Backend'
 
     # lets get the current day and time in UTC
     utc_time = datetime.datetime.now(pytz.utc)
