@@ -1,4 +1,14 @@
 # Backend Stage One Task
+## How to run my endpoint
+- git clone https://github.com/AishaKhalfan/HNGx-INTERNSHIP.git
+- cd HNGx-INTERNSHIP/BackendStage1
+- pip install -r requirements.txt
+- python3 app.py
+- click http://127.0.0.1:5000/index
+```json
+{"Current UTC time":"2023-09-07 08:02:36.901090+00:00","Current day of the week":"Thursday","GitHub URL of the file being run":"https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/BackendStage1/app.py","GitHub URL of the full source code":"https://github.com/AishaKhalfan/HNGx-INTERNSHIP","Slack name":"Aisha Khalifan","Status Code":"Success","Track":"Backend General"}
+```
+
 Dear Interns, :clap:
 Welcome to Stage One.
 
