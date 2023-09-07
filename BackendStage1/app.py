@@ -6,7 +6,7 @@ import pytz
 app = Flask(__name__)
 
 @app.route('/api', methods=['GET'])
-def get_infor(slack_name, track):
+def get_infor():
     """
     This endpoint should take two GET request query parameters
     return specific information in JSON format
