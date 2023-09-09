@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 app.get('/api/', (req, res) => {
   const {slack_name,track} = req.query;
 
-  if (!slackName || !track) {
+  if (!slack_name || !track) {
     res.status(400);
     res.json({
       error: 'Please provide the slack_name and track query parameters',
