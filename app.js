@@ -24,14 +24,12 @@ app.get('/api', (req, res) => {
   }
 
   const now = moment().utc();
-  //const utcTime = now.format('YYYY-MM-DDTHH:mm:ssZ');
-  const utcTime = now.toISOString();
+  const utcTime = now.format('YYYY-MM-DDTHH:mm:ssZ');
+  //const utcTime = now.toISOString();
   const currentDay = now.format('dddd');
 
   // Check if the UTC time is within a +/-2 minute window
   const currentTime = now.format('HH:mm'); // Format as hours and minutes
-  //const isValidTime = moment(currentTime, 'HH:mm').isBetween('08:00', '16:00');
-  // Validate UTC time within +/- 2 minutes
   const isValidTime = now.isBetween(
     moment().subtract(2, 'minutes'),
     moment().add(2, 'minutes')
