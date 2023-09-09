@@ -1,19 +1,14 @@
 const express = require('express');
-const github = require('@octokit/rest');
-
 const app = express();
-
 const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
   res.send('Welcome to my HNGx stage1 API!');
 });
 
-app.get('/api', (req, res) => {
-  const slackName = req.query.slack_name;
-  const track = req.query.track;
-  // const slackName = 'AishaKhalifan';
-  // const track = 'Backend';
+app.get('/api/', (req, res) => {
+  const {slack_name,track} = req.query;
+
   if (!slackName || !track) {
     res.status(400);
     res.json({
@@ -33,7 +28,7 @@ app.get('/api', (req, res) => {
   const githubRepoUrl = "https://github.com/AishaKhalfan/HNGx-INTERNSHIP/";
 
   const response = {
-    slack_name: slackName,
+    slack_name: slack_name,
     current_day: currentDay,
     utc_time: utcTime,
     track: track,
