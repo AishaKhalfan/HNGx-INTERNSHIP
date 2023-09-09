@@ -9,6 +9,8 @@ app.get('/', (req, res) => {
 app.get('/api/', (req, res) => {
   const {slack_name,track} = req.query;
 
+  track = track.charAt(0).toUpperCase() + track.slice(1);
+
   if (!slack_name || !track) {
     res.status(400);
     res.json({
