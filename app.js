@@ -11,10 +11,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api', (req, res) => {
-  const slackName = req.query.slack_name;
-  const track = req.query.track;
-  //const slackName = 'AishaKhalifan';
-  //const track = 'Backend';
+  //const slackName = req.query.slack_name;
+  //const track = req.query.track;
+  const slackName = 'AishaKhalifan';
+  const track = 'Backend';
   if (!slackName || !track) {
     res.status(400);
     res.json({
