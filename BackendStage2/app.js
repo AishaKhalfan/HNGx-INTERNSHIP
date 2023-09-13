@@ -1,8 +1,21 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const { MongoClient, ObjectId } = require('mongodb');
 
 const app = express();
 const port  = 3000;
+const mongoURI = 'mogodb:..localhost:22017';
+
+let db;
+
+MongoClient.connect(mongoURI,  { useUnifiedTopology: true }, (err, client) => {
+  if (err) {
+    console.error('Error connecting to MongoDB:', err);
+    return;
+  }
+  console.log('Connected to MongoDB');
+  db = client.db('mydatabase'); // Replace 'mydatabase' with your database name
+});
 
 let people = [
   { id: 1, name: 'Aisha' },
@@ -13,12 +26,13 @@ let people = [
 app.use(bodyParser.json());
 
 //GET all items
-app.get('/items', (req, res) => {
-  res.json(people);
+app.get('/api', (req, res) => {
+  //res.json(people);
+  db.collection(people)
 });
 
 //GET a specific person
-app.get('/items/:id', (req, res) => {
+app.get('/api/:id', (req, res) => {
   const id  = parseInt(req.params.id);
   const person = people.find((person) => person.id === id);
   if (!person){
@@ -29,7 +43,7 @@ app.get('/items/:id', (req, res) => {
 });
 
 //POST: add a new person
-app.post('/items', (req, res) => {
+app.post('/api', (req, res) => {
   const newPerson = req.body;
   if (!newPerson.name) {
     res.status(404).json({ message: 'Name is required'});
@@ -41,7 +55,7 @@ app.post('/items', (req, res) => {
   });
 
 //PUT:updating a Person by ID
-app.put('items/:id', (req, res) => {
+app.put('/api/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const updatedPerson = req.body;
   const index = people.findIndex((person) => person.id === id);
@@ -54,7 +68,7 @@ app.put('items/:id', (req, res) => {
 });
 
 // DELETE request to delete an item by ID
-app.delete('/items/:id', (req, res) => {
+app.delete('/api/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const index = people.findIndex((item) => item.id === id);
   if (index === -1) {
