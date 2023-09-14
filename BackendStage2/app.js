@@ -1,84 +1,119 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { MongoClient, ObjectId } = require('mongodb');
+const mongoose = require('mongoose');
+
+const connectionString = 'mongodb://localhost:27017/hngx';
+
+mongoose.connect(connectionString, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const db = mongoose.connection;
+
+db.on('error', (err) => {
+  console.error('Database connection error:', err);
+});
+
+db.once('open', () => {
+  console.log('Connected to database');
+});
 
 const app = express();
-const port  = 3000;
-const mongoURI = 'mogodb:..localhost:22017';
+app.use(bodyParser.json()); // Use bodyParser middleware for parsing JSON
 
-let db;
+// Define a Person schema and model using Mongoose
+const personSchema = new mongoose.Schema({
+  name: String,
+  id: Number,
+}, { versionKey: false, // Disable the version key
 
-MongoClient.connect(mongoURI,  { useUnifiedTopology: true }, (err, client) => {
-  if (err) {
-    console.error('Error connecting to MongoDB:', err);
-    return;
+});
+
+const Person = mongoose.model('Person', personSchema);
+
+//entry point
+app.get('/api', (req, res)  => {
+  console.log('Welcome to my Stage2 API');  
+});
+
+//Get all Persons
+app.get('/api/people', async (req, res) => {
+  try {
+    const people = await Person.find(); // Retrieve all documents from the Person collection
+
+    res.json(people);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
   }
-  console.log('Connected to MongoDB');
-  db = client.db('mydatabase'); // Replace 'mydatabase' with your database name
 });
 
-let people = [
-  { id: 1, name: 'Aisha' },
-  { id: 2, name: 'Atesh' },
-  { id: 3, name: 'Atieno' },
-];
 
-app.use(bodyParser.json());
+// Create a new person
+app.post('/api/person', async (req, res) => {
+  try {
+    //count the existing people in the DB
+    //const count = await Person.countDocuments();
 
-//GET all items
-app.get('/api', (req, res) => {
-  //res.json(people);
-  db.collection(people)
+    //create new person with autoGen ID	  
+    const person = new Person({
+      name: req.body.name,
+      //id: count + 1, //Automatic ID
+    });
+
+    await person.save();
+
+    res.status(201).json(person);
+  } catch (err) {
+    console.error('Error creating person:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
-//GET a specific person
-app.get('/api/:id', (req, res) => {
-  const id  = parseInt(req.params.id);
-  const person = people.find((person) => person.id === id);
-  if (!person){
-    res.status(404).json({ message: 'Person not found'})
-  } else {
+// Get a person by ID
+app.get('/api/person/:id', async (req, res) => {
+  try {
+    const person = await Person.findById(req.params.id);
+    if (!person) {
+      return res.status(404).json({ error: 'Person not found' });
+    }
     res.json(person);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
-//POST: add a new person
-app.post('/api', (req, res) => {
-  const newPerson = req.body;
-  if (!newPerson.name) {
-    res.status(404).json({ message: 'Name is required'});
-  } else {
-    newPerson.id =  people.length + 1;
-    people.push(newPerson);
-    res.status(201).json(newPerson);
-  }
-  });
-
-//PUT:updating a Person by ID
-app.put('/api/:id', (req, res) => {
-  const id = parseInt(req.params.id);
-  const updatedPerson = req.body;
-  const index = people.findIndex((person) => person.id === id);
-  if (index === -1) {
-    res.status(404).json({ message: 'Person not found'});
-  } else {
-    people[index] = {...people[index],  ...updatedPerson };
-    res.json(data[index]);
+// Update a person by ID
+app.put('/api/person/:id', async (req, res) => {
+  try {
+    const person = await Person.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    if (!person) {
+      return res.status(404).json({ error: 'Person not found' });
+    }
+    res.json(person);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
-// DELETE request to delete an item by ID
-app.delete('/api/:id', (req, res) => {
-  const id = parseInt(req.params.id);
-  const index = people.findIndex((item) => item.id === id);
-  if (index === -1) {
-    res.status(404).json({ message: 'Item not found' });
-  } else {
-    data.splice(index, 1);
-    res.json({ message: 'Item deleted' });
+// Delete a person by ID
+app.delete('/api/person/:id', async (req, res) => {
+  try {
+    const person = await Person.findByIdAndRemove(req.params.id);
+    if (!person) {
+      return res.status(404).json({ error: 'Person not found' });
+    }
+    res.json(person);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
 });
+
