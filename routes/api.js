@@ -1,13 +1,9 @@
+// routes/api.js
 const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
+const router = express.Router();
 
-app.get('/', (req, res) => {
-  res.send('Welcome to my HNGx stage1 API!');
-});
-
-app.get('/api/', (req, res) => {
-  const {slack_name,track} = req.query;
+router.get('/', (req, res) => {
+  const { slack_name, track } = req.query;
 
   if (!slack_name || !track) {
     res.status(400);
@@ -24,8 +20,8 @@ app.get('/api/', (req, res) => {
   // Format the UTC time without milliseconds
   const utcTime = new Date().toISOString().replace(/\.\d+/, '');
 
-  const githubFileUrl = "https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/app.js";
-  const githubRepoUrl = "https://github.com/AishaKhalfan/HNGx-INTERNSHIP/";
+  const githubFileUrl = 'https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/app.js';
+  const githubRepoUrl = 'https://github.com/AishaKhalfan/HNGx-INTERNSHIP/';
 
   const response = {
     slack_name: slack_name,
@@ -40,7 +36,5 @@ app.get('/api/', (req, res) => {
   res.json(response);
 });
 
-app.listen(port, () => {
-  console.log(`App is listening on port http://localhost:${port}/`);
-});
+module.exports = router;
 
