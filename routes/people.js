@@ -5,7 +5,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 // Add your MongoDB connection setup here
-const connectionString = 'mongodb://localhost:27017/hngx';
+//'mongodb://localhost:27017/hngx';
+const connectionString = process.env.MONGODB_URI;
 mongoose.connect(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
