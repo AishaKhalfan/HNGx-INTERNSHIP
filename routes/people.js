@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 // Add your MongoDB connection setup here
 //'mongodb://localhost:27017/hngx';
