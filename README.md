@@ -58,8 +58,9 @@ Projects I worked on during my  HNGx virtual internship
 - Click on : ``https://hngx-people.onrender.com/`` you will get a welcome message:
  ``Welcome to my HNGx API!``
 - To Get all persons in our Database use this: 
+
 	- ``https://hngx-people.onrender.com/api/people``
-![IMG](https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/images/get_all2.png)
+- ![IMG](https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/images/get_all2.png)
 <details>
 <summary>Click to set the output/hide file contents</summary>
 	[
@@ -113,7 +114,8 @@ Projects I worked on during my  HNGx virtual internship
   }
 ]
 </details>
-![IMG](https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/images/get_all.png)
+
+- ![IMG](https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/images/get_all.png)
 - To GET a person by user_id:
 	- ``https://hngx-people.onrender.com/api/person/:user_id``
 	- For example:``https://hngx-people.onrender.com/api/person/650367995208039d682dcc90``
