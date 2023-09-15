@@ -9,8 +9,8 @@ require('dotenv').config();
 //'mongodb://localhost:27017/hngx';
 const connectionString = process.env.MONGODB_URI;
 mongoose.connect(connectionString, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+  //useNewUrlParser: true,
+  //useUnifiedTopology: true,
 });
 const db = mongoose.connection;
 
@@ -20,6 +20,8 @@ db.on('error', (err) => {
 
 db.once('open', () => {
   console.log('Connected to database');
+  const people = Person.find();
+  console.log(people);
 });
 
 // Use bodyParser middleware for parsing JSON
