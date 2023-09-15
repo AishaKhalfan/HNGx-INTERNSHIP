@@ -12,6 +12,9 @@ app.use('/', indexRouter);
 app.use('/api', apiRouter);
 app.use('/api', peopleRouter);
 
+// Import cron job
+const cron = require('./cron');
+
 app.listen(port, () => {
   console.log(`App is listening on http://localhost:${port}/`);
 });
