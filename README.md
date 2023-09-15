@@ -119,7 +119,7 @@ Projects I worked on during my  HNGx virtual internship
 - To GET a person by user_id:
 	- ``https://hngx-people.onrender.com/api/person/:user_id``
 	- For example:``https://hngx-people.onrender.com/api/person/650367995208039d682dcc90``
-	```json{"_id":"650367995208039d682dcc90","name":"Onur"}``
+	```json{"_id":"650367995208039d682dcc90","name":"Onur"}```
 
 - To Update(PUT) a person details:
 ![img](https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/images/update_person.png)
