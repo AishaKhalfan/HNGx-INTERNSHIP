@@ -51,14 +51,17 @@ Projects I worked on during my  HNGx virtual internship
 	- READ: Fetching details of a person.  => /api/user_id
 	- UPDATE: Modifying details of an existing person => /api/user_id
 	- DELETE: Removing a person => /api/user_id
+- This API interacts with A MONGODB database hosted on mongoAtlas
+- I connected the API to the mongodb atlas then added my mongodb uri adn connection string to my RENDER environment variables
 
 # HOW TO USE MY ENDPOINTS
 - Click on : ``https://hngx-people.onrender.com/`` you will get a welcome message:
  ``Welcome to my HNGx API!``
 - To Get all persons in our Database use this: 
 	- ``https://hngx-people.onrender.com/api/people``
-	<details>
-	<summary>Click to set the output/hide file contents</summary>
+![IMG](https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/images/get_all2.png)
+<details>
+<summary>Click to set the output/hide file contents</summary>
 	[
   {
     "_id": "650367995208039d682dcc90",
@@ -109,17 +112,20 @@ Projects I worked on during my  HNGx virtual internship
     "name": "MAGHANDY2"
   }
 ]
-	</details>
+</details>
+![IMG](https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/images/get_all.png)
 - To GET a person by user_id:
 	- ``https://hngx-people.onrender.com/api/person/:user_id``
 	- For example:``https://hngx-people.onrender.com/api/person/650367995208039d682dcc90``
 	```json{"_id":"650367995208039d682dcc90","name":"Onur"}``
+
 - To Update(PUT) a person details:
-![img]()
+![img](https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/images/update_person.png)
 
 - To delete a person using their user_id: 
 	- ``https://hngx-people.onrender.com/api/person/:user_id``
-![img]()
+![img](https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/images/delete.png)
+
 </details>
 
 # STAGE 3 TASK
