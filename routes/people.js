@@ -20,8 +20,8 @@ db.on('error', (err) => {
 
 db.once('open', () => {
   console.log('Connected to database');
-  const people = Person.find();
-  console.log(people);
+  //const people = Person.find();
+  //console.log(people);
 });
 
 // Use bodyParser middleware for parsing JSON
