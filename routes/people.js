@@ -30,8 +30,9 @@ router.use(bodyParser.json());
 // Define a Person schema and model using Mongoose
 const personSchema = new mongoose.Schema({
   name: String,
-  id: Number,
+  _id: Number,
 }, { versionKey: false });
+
 
 const Person = mongoose.model('Person', personSchema);
 
@@ -49,8 +50,11 @@ router.get('/people', async (req, res) => {
 // Create a new person
 router.post('/person', async (req, res) => {
   try {
+    const count = await Person.countDocuments();
+
     const person = new Person({
       name: req.body.name,
+      _id: count + 1,
     });
 
     await person.save();
