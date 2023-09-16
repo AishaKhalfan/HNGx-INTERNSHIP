@@ -21,15 +21,15 @@ Projects I worked on during my  HNGx virtual internship
 <summary>Click to READ MORE/hide file contents</summary>
 	- This is an ExpressJS endpoints
 
- Deployed it to heroku: https://hngxapi-b17a89a82aa5.herokuapp.com/api?slack_name=AishaKhalifan&track=Backend
+- Deployed it to heroku: https://https://hngx-api-75768de8af7d.herokuapp.com/api?slack_name=AishaKhalifan&track=Backend
 
    **How I deployed it Heroku**
    	- ``heroku login``
-   	- ``heroku create your-app-name(hngxapi) --buildpack heroku/nodejs``
+   	- ``heroku create your-app-name(hngx-api) --buildpack heroku/nodejs``
    	- ``git push heroku main``
    **How to run my endpoint**
 	- In your terminal run ``heroku open``
-	- It will connect you to: https://hngxapi-b17a89a82aa5.herokuapp.com/api
+	- It will connect you to: https://hngx-api-75768de8af7d.herokuapp.com/api
    	- or:  ``https://hngx-people.onrender.com/api/``
    	- ?slack_name=AishaKhalifan&track=Backend or any values 
 </details>
@@ -44,7 +44,9 @@ Projects I worked on during my  HNGx virtual internship
 - My API can dynamically handle parameters, such as adding or retrieving a person by ``name`` or by ``_id``
 
 ## HOSTING
-- We deployed this API on render: https://hngx-people.onrender.com/api/
+- We deployed this API on heroku and render:
+	- https://hngx-api-75768de8af7d.herokuapp.com/
+	- https://hngx-people.onrender.com/api/
 ## REST API ENDPOINTS
 - The follwoing are my endpoints:
 	- CREATE: Adding a new person.  /api
@@ -59,7 +61,7 @@ Projects I worked on during my  HNGx virtual internship
  ``Welcome to my HNGx API!``
 - To Get all persons in our Database use this: 
 
-	- ``https://hngx-people.onrender.com/api/people``
+	- ``https://hngx-api-75768de8af7d.herokuapp.com/api/people``
 - ![IMG](https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/images/get_all2.png)
 <details>
 <summary>Click to set the output/hide file contents</summary>
@@ -171,15 +173,15 @@ Projects I worked on during my  HNGx virtual internship
 
 - ![IMG](https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/images/get_all.png)
 - To GET a person by user_id:
-	- ``https://hngx-people.onrender.com/api/person/:user_id``
-	- For example:``https://hngx-people.onrender.com/api/person/25``
+	- ``https://https://hngx-api-75768de8af7d.herokuapp.com/api/person/:user_id``
+	- For example:``https://hngx-api-75768de8af7d.herokuapp.com/api/person/25``
 	```json{"_id":"25","name":"VISHV KHVLFVN"}```
 
 - To Update(PUT) a person details:
 ![img](https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/images/update_person.png)
 
 - To delete a person using their user_id: 
-	- ``https://hngx-people.onrender.com/api/person/:user_id``
+	- ``https://hngx-api-75768de8af7d.herokuapp.com/api/:user_id``
 ![img](https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/images/delete.png)
 
 </details>
