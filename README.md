@@ -63,63 +63,117 @@ Projects I worked on during my  HNGx virtual internship
 - ![IMG](https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/images/get_all2.png)
 <details>
 <summary>Click to set the output/hide file contents</summary>
-	[
+```json
+[
   {
-    "_id": "650367995208039d682dcc90",
-    "name": "Onur"
+    "_id": 1,
+    "name": "AISHA KHALFAN"
   },
   {
-    "_id": "650367a55208039d682dcc92",
-    "name": "Aisha"
+    "_id": 2,
+    "name": "KHALFAN"
   },
   {
-    "_id": "65036c3c3c5dcce630ed56c7",
-    "name": "Khalfan muslim"
+    "_id": 3,
+    "name": "KHALFAN MUSLIM"
   },
   {
-    "_id": "650370285a409c4874075030",
-    "name": "Habib Elhajj"
+    "_id": 4,
+    "name": "MUSLIM"
   },
   {
-    "_id": "65037f71db8f5891a1ab5382",
-    "name": "Abbas Muslim"
+    "_id": 5,
+    "name": "ATESH"
   },
   {
-    "_id": "6503836ee0c6614a9b979372",
-    "name": "Abbasanjo"
+    "_id": 6,
+    "name": "ATESH ACHAR"
   },
   {
-    "_id": "65038376e0c6614a9b979374",
-    "name": "AHJKO"
+    "_id": 7,
+    "name": "ONUR"
   },
   {
-    "_id": "6504736b894529e3db0d1b2d",
-    "name": "Atesh Achar"
+    "_id": 8,
+    "name": "OSMAN"
   },
   {
-    "_id": "6504737b894529e3db0d1b2f",
-    "name": "KHALFANITO"
+    "_id": 9,
+    "name": "HAJJ HABIB"
   },
   {
-    "_id": "650473fd894529e3db0d1b32",
-    "name": "MAGHANDY"
+    "_id": 10,
+    "name": "AMAL"
   },
   {
-    "_id": "6504740a894529e3db0d1b34",
-    "name": "MAGHANDY"
+    "_id": 11,
+    "name": "AHMED"
   },
   {
-    "_id": "65047413894529e3db0d1b36",
-    "name": "MAGHANDY2"
+    "_id": 12,
+    "name": "BARKE"
+  },
+  {
+    "_id": 13,
+    "name": "BAHJA"
+  },
+  {
+    "_id": 14,
+    "name": "BASSAM"
+  },
+  {
+    "_id": 15,
+    "name": "CHALTU"
+  },
+  {
+    "_id": 16,
+    "name": "CHAMISA"
+  },
+  {
+    "_id": 17,
+    "name": "CHANYISA"
+  },
+  {
+    "_id": 18,
+    "name": "DAUD"
+  },
+  {
+    "_id": 19,
+    "name": "DANIELA"
+  },
+  {
+    "_id": 20,
+    "name": "DAWOOD"
+  },
+  {
+    "_id": 21,
+    "name": "HALIME SULTAN"
+  },
+  {
+    "_id": 22,
+    "name": "NAJMA ELMI"
+  },
+  {
+    "_id": 23,
+    "name": "MULKI BOXXY"
+  },
+  {
+    "_id": 24,
+    "name": "DEKA ISTVAR"
+  },
+  {
+    "_id": 25,
+    "name": "VISHV KHVLFVN"
   }
 ]
+```
 </details>
 
 - ![IMG](https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/images/get_all.png)
 - To GET a person by user_id:
 	- ``https://hngx-people.onrender.com/api/person/:user_id``
-	- For example:``https://hngx-people.onrender.com/api/person/650367995208039d682dcc90``
-	```json{"_id":"650367995208039d682dcc90","name":"Onur"}```
+	- For example:``https://hngx-people.onrender.com/api/person/25``
+	```json{"_id":"25","name":"VISHV KHVLFVN"}```
 
 - To Update(PUT) a person details:
 ![img](https://github.com/AishaKhalfan/HNGx-INTERNSHIP/blob/main/images/update_person.png)
